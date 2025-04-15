@@ -11,30 +11,36 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1B5E20] text-white py-12 px-4 sm:px-6 ">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
-          <div>
-            <div className="flex items-center gap-2 mb-3 sm:mb-4">
-              <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-[#4FC3F7]"></div>
-              <span className="text-lg sm:text-xl font-bold">ArdhiDigital</span>
+    <footer className="bg-[#1B5E20] text-white py-12 px-4 sm:px-6 w-full overflow-hidden">
+      {/* Container with max-width matching your layout */}
+      <div className="max-w-7xl mx-auto w-full">
+        {/* Grid layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 mb-10 sm:mb-12">
+          {/* Column 1: Brand */}
+          <div className="space-y-3 sm:space-y-4">
+            <div className="flex items-center gap-2">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#4FC3F7]"></div>
+              <span className="text-xl sm:text-2xl font-bold">
+                ArdhiDigital
+              </span>
             </div>
-            <p className="text-xs sm:text-sm opacity-80">
+            <p className="text-sm sm:text-base opacity-80 leading-relaxed">
               Integrating environmental expertise with technological innovation
               for sustainable solutions.
             </p>
           </div>
 
+          {/* Column 2: Services */}
           <div>
-            <h3 className="font-semibold text-base sm:text-lg mb-3 sm:mb-4">
+            <h3 className="font-semibold text-lg sm:text-xl mb-4 sm:mb-5">
               Services
             </h3>
-            <ul className="space-y-1 sm:space-y-2">
+            <ul className="space-y-2 sm:space-y-3">
               {services.map((service, i) => (
                 <motion.li key={i} whileHover={{ x: 5 }}>
                   <a
                     href="#"
-                    className="text-xs sm:text-sm opacity-80 hover:opacity-100"
+                    className="text-sm sm:text-base opacity-80 hover:opacity-100 transition-opacity"
                   >
                     {service.title}
                   </a>
@@ -43,17 +49,18 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Column 3: Company */}
           <div>
-            <h3 className="font-semibold text-base sm:text-lg mb-3 sm:mb-4">
+            <h3 className="font-semibold text-lg sm:text-xl mb-4 sm:mb-5">
               Company
             </h3>
-            <ul className="space-y-1 sm:space-y-2">
+            <ul className="space-y-2 sm:space-y-3">
               {["About Us", "Our Team", "Careers", "Newsroom"].map(
                 (item, i) => (
                   <motion.li key={i} whileHover={{ x: 5 }}>
                     <a
                       href="#"
-                      className="text-xs sm:text-sm opacity-80 hover:opacity-100"
+                      className="text-sm sm:text-base opacity-80 hover:opacity-100 transition-opacity"
                     >
                       {item}
                     </a>
@@ -63,11 +70,12 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Column 4: Contact */}
           <div>
-            <h3 className="font-semibold text-base sm:text-lg mb-3 sm:mb-4">
+            <h3 className="font-semibold text-lg sm:text-xl mb-4 sm:mb-5">
               Contact
             </h3>
-            <address className="not-italic text-xs sm:text-sm opacity-80 space-y-1 sm:space-y-2">
+            <address className="not-italic text-sm sm:text-base opacity-80 space-y-2 sm:space-y-3 leading-relaxed">
               <div>6825 Kibwerege</div>
               <div>Kinondoni, DAR ES SALAAM</div>
               <div>elizephanigodwini@rocketmail.com</div>
@@ -76,48 +84,27 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/20 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-center">
-          <div className="text-xs sm:text-sm opacity-80 mb-4 sm:mb-0">
+        {/* Bottom section */}
+        <div className="border-t border-white/20 pt-8 sm:pt-10 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <div className="text-sm sm:text-base opacity-80 text-center sm:text-left">
             © {new Date().getFullYear()} ArdhiDigital Solutions. All rights
             reserved.
           </div>
-          <div className="flex gap-2 sm:gap-4">
+          <div className="flex gap-3 sm:gap-4">
             {[
-              {
-                name: "Twitter",
-                icon: faXTwitter,
-                url: "https://x.com/kentrisk",
-              },
-              {
-                name: "LinkedIn",
-                icon: faLinkedin,
-                url: "https://linkedin.com/company/kentrisk",
-              },
-              {
-                name: "Facebook",
-                icon: faFacebook,
-                url: "https://facebook.com/kentrisk",
-              },
-              {
-                name: "Instagram",
-                icon: faInstagram,
-                url: "https://instagram.com/kentrisk",
-              },
+              { name: "Twitter", icon: faXTwitter, url: "#" },
+              { name: "LinkedIn", icon: faLinkedin, url: "#" },
+              { name: "Facebook", icon: faFacebook, url: "#" },
+              { name: "Instagram", icon: faInstagram, url: "#" },
             ].map((social, i) => (
               <motion.a
                 key={i}
                 href={social.url}
-                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center"
-                whileHover={{
-                  backgroundColor: "rgba(79, 195, 247, 0.3)",
-                  scale: 1.1,
-                }}
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#4FC3F7]/30 transition-colors"
+                whileHover={{ scale: 1.1 }}
                 aria-label={social.name}
               >
-                <FontAwesomeIcon
-                  icon={social.icon}
-                  className="w-4 h-4 sm:w-5 sm:h-5"
-                />
+                <FontAwesomeIcon icon={social.icon} className="text-lg" />
               </motion.a>
             ))}
           </div>
