@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 export default function Stats() {
   return (
     <section className="py-12 sm:py-16 bg-[#2E7D32] text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 text-center"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 text-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -20,13 +20,12 @@ export default function Stats() {
         >
           {[
             { value: "12+", label: "Years Experience" },
-            { value: "300+", label: "Clients Served" },
-            { value: "850K", label: "Tons CO₂ Reduced" },
+            { value: "100+", label: "Clients Served" },
             { value: "98%", label: "Regulatory Compliance Rate" },
           ].map((stat, i) => (
             <motion.div
               key={i}
-              className="p-4 sm:p-6"
+              className="flex flex-col items-center justify-center p-4 sm:p-6"
               variants={{
                 hidden: { opacity: 0, y: 20 },
                 visible: {
@@ -39,10 +38,12 @@ export default function Stats() {
                 },
               }}
             >
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1 sm:mb-2">
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-3">
                 {stat.value}
               </div>
-              <div className="text-xs sm:text-sm opacity-90">{stat.label}</div>
+              <div className="text-sm sm:text-base md:text-lg opacity-90 max-w-[160px] sm:max-w-[200px]">
+                {stat.label}
+              </div>
             </motion.div>
           ))}
         </motion.div>

@@ -62,7 +62,7 @@ export default function About() {
             <h2 className="text-3xl font-bold text-[#2E7D32] mb-6 text-center md:text-left">
               Our Vision
             </h2>
-            <p className="text-lg text-slate-700 mb-6">
+            <p className="text-lg text-slate-700 mb-6 text-center md:text-left">
               A world where <strong>environmental stewardship</strong> and{" "}
               <strong>technological innovation</strong> coexist
               seamlessly—transforming regulations into opportunities and data
@@ -159,53 +159,154 @@ export default function About() {
       </section>
 
       {/* Our Story Section */}
-      <section className="py-16 px-4 max-w-4xl mx-auto">
-        <motion.h2
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="text-3xl font-bold text-[#2E7D32] mb-12 text-center"
-        >
-          Our Journey
-        </motion.h2>
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="hidden md:block absolute left-1/2 top-0 h-full w-1 bg-[#4FC3F7] transform -translate-x-1/2"></div>
+      {/* Our Journey Section */}
+      <section className="py-16 px-4 bg-[#F7FDFF]">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl font-bold text-[#2E7D32] mb-4">
+              Our Journey
+            </h2>
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+              From independent experts to a unified force for sustainable
+              innovation
+            </p>
+          </motion.div>
 
-          {/* Timeline items */}
-          {timeline.map((item, index) => (
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            {/* Story Content */}
             <motion.div
-              key={index}
-              variants={fadeInUp}
+              variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className={`mb-12 md:flex justify-between items-center ${
-                index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-              }`}
             >
-              <div
-                className={`md:w-5/12 ${
-                  index % 2 === 0 ? "md:text-right" : "md:text-left"
-                } mb-4 md:mb-0`}
-              >
-                <h3 className="font-bold text-lg">
-                  {item.year}: {item.title}
+              <motion.div variants={fadeInUp} className="mb-6">
+                <h3 className="text-xl font-bold text-[#2E7D32] mb-3">
+                  Independent Roots
                 </h3>
-                <p className="text-slate-600">{item.description}</p>
-              </div>
-              <div className="hidden md:block w-2/12 flex justify-center">
-                <div
-                  className={`w-6 h-6 rounded-full ${
-                    index % 2 === 0 ? "bg-[#2E7D32]" : "bg-[#4FC3F7]"
-                  } border-4 border-white shadow`}
-                ></div>
-              </div>
-              <div className="md:w-5/12"></div>
+                <p className="text-slate-700">
+                  Before founding the company, our team members worked
+                  independently—completing
+                  <strong> over 25 successful projects</strong> across various
+                  industries. From environmental impact assessments to custom
+                  sustainability software, we've tackled complex challenges as
+                  solo practitioners.
+                </p>
+              </motion.div>
+
+              <motion.div variants={fadeInUp} className="mb-6">
+                <h3 className="text-xl font-bold text-[#2E7D32] mb-3">
+                  The Turning Point
+                </h3>
+                <p className="text-slate-700">
+                  In 2023, we recognized that by combining our specialized
+                  skills, we could deliver{" "}
+                  <strong>more comprehensive solutions</strong>. That experience
+                  laid the foundation for building a company that combines
+                  technical skill, environmental insight, and a commitment to
+                  client satisfaction.
+                </p>
+              </motion.div>
+
+              <motion.div variants={fadeInUp}>
+                <h3 className="text-xl font-bold text-[#2E7D32] mb-3">
+                  Why We Came Together
+                </h3>
+                <div className="space-y-3">
+                  <div className="flex items-start">
+                    <Icons.PuzzlePieceIcon className="text-[#4FC3F7] h-5 w-5 mr-2 mt-1 flex-shrink-0" />
+                    <span>
+                      Clients needed end-to-end solutions we couldn't provide
+                      separately
+                    </span>
+                  </div>
+                  <div className="flex items-start">
+                    <Icons.ScaleIcon className="text-[#4FC3F7] h-5 w-5 mr-2 mt-1 flex-shrink-0" />
+                    <span>
+                      Shared frustration with the limitations of traditional
+                      consultancies
+                    </span>
+                  </div>
+                  <div className="flex items-start">
+                    <Icons.SparklesIcon className="text-[#4FC3F7] h-5 w-5 mr-2 mt-1 flex-shrink-0" />
+                    <span>
+                      Saw an opportunity to redefine industry standards
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
             </motion.div>
-          ))}
+
+            {/* Visual Timeline */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="relative h-full min-h-[400px]"
+            >
+              {/* Vertical line */}
+              <div className="absolute left-8 top-0 h-full w-1 bg-[#4FC3F7]/30"></div>
+
+              {/* Timeline items */}
+              {[
+                {
+                  year: "2015-2022",
+                  title: "Independent Work",
+                  content:
+                    "Team members complete 25+ projects across 8 industries",
+                  icon: <Icons.UserIcon className="h-5 w-5" />,
+                },
+                {
+                  year: "Early 2023",
+                  title: "Collaboration Begins",
+                  content:
+                    "Joint projects reveal synergies between our specialties",
+                  icon: <Icons.UserGroupIcon className="h-5 w-5" />,
+                },
+                {
+                  year: "Late 2023",
+                  title: "Company Founded",
+                  content: "Formalized our partnership to serve clients better",
+                  icon: <Icons.BuildingOfficeIcon className="h-5 w-5" />,
+                },
+              ].map((item, index) => (
+                <div key={index} className="relative pl-16 pb-8">
+                  <div
+                    className={`absolute left-8 top-1 w-4 h-4 rounded-full ${
+                      index === 2 ? "bg-[#2E7D32]" : "bg-[#4FC3F7]"
+                    } border-4 border-white shadow-md`}
+                  ></div>
+                  <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                    <div className="flex items-center mb-2">
+                      <span
+                        className={`mr-3 p-1.5 rounded-full ${
+                          index === 2
+                            ? "bg-[#2E7D32]/10 text-[#2E7D32]"
+                            : "bg-[#4FC3F7]/10 text-[#4FC3F7]"
+                        }`}
+                      >
+                        {item.icon}
+                      </span>
+                      <span className="font-bold text-slate-800">
+                        {item.year}
+                      </span>
+                    </div>
+                    <h4 className="text-lg font-semibold text-[#2E7D32] mb-1">
+                      {item.title}
+                    </h4>
+                    <p className="text-slate-600">{item.content}</p>
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -219,10 +320,10 @@ export default function About() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl font-bold mb-2">Why We Stand Out</h2>
+            <h2 className="text-3xl font-bold mb-2">Why Choose Our New Firm</h2>
             <p className="text-xl text-white/80 max-w-3xl mx-auto">
-              The rare synergy of <strong>field expertise</strong> and{" "}
-              <strong>tech proficiency</strong>.
+              All the experience of established players with none of the
+              bureaucracy
             </p>
           </motion.div>
 
@@ -234,15 +335,32 @@ export default function About() {
             className="grid md:grid-cols-3 gap-8 mb-16"
           >
             {[
-              { value: "150+", label: "Projects Completed" },
-              { value: "95%", label: "Client Retention" },
-              { value: "12", label: "Patents & Certifications" },
+              {
+                value: "15+",
+                label: "Years Experience (Each Principal)",
+                icon: (
+                  <Icons.AcademicCapIcon className="h-8 w-8 mx-auto mb-3" />
+                ),
+              },
+              {
+                value: "25+",
+                label: "Combined Past Projects",
+                icon: <Icons.BriefcaseIcon className="h-8 w-8 mx-auto mb-3" />,
+              },
+              {
+                value: "100%",
+                label: "Senior-Level Team",
+                icon: <Icons.UserCircleIcon className="h-8 w-8 mx-auto mb-3" />,
+              },
             ].map((stat, index) => (
               <motion.div
                 key={index}
                 variants={fadeInUp}
-                className="text-center"
+                className="text-center bg-white/5 p-6 rounded-xl"
               >
+                <div className="text-[#4FC3F7] flex justify-center">
+                  {stat.icon}
+                </div>
                 <div className="text-5xl font-bold mb-2">{stat.value}</div>
                 <p className="text-white/90">{stat.label}</p>
               </motion.div>
@@ -258,23 +376,30 @@ export default function About() {
           >
             {[
               {
-                title: "Regulatory Whisperers",
+                title: "No Junior Staff",
                 description:
-                  "Our team includes former regulators who know how to navigate compliance efficiently.",
+                  "Every project is handled directly by our principals with 15+ years experience each",
+                icon: <Icons.FaceFrownIcon className="h-6 w-6" />,
               },
               {
-                title: "Full-Stack Sustainability",
+                title: "Boutique Flexibility",
                 description:
-                  "From soil sampling to database architecture—we handle every layer.",
+                  "Our small size means we can adapt quickly to your needs without layers of approval",
+                icon: <Icons.ArrowPathIcon className="h-6 w-6" />,
               },
             ].map((item, index) => (
               <motion.div
                 key={index}
                 variants={fadeInUp}
-                className="bg-white/10 p-6 rounded-xl backdrop-blur-sm"
+                className="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/10"
               >
-                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                <p>{item.description}</p>
+                <div className="flex items-start">
+                  <div className="text-[#4FC3F7] mr-3 mt-1">{item.icon}</div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                    <p className="text-white/90">{item.description}</p>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </motion.div>

@@ -91,8 +91,7 @@ const caseStudies = [
       "30% reduction in projected environmental impact",
       "Project approval in record time",
     ],
-    image:
-      "https://images.unsplash.com/photo-1581093450021-4a7360e9aab5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+    image: "eia.jpg",
     services: [
       "Environmental Impact Assessment",
       "Environmental Management Plan",

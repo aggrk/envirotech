@@ -105,7 +105,7 @@ export default function CaseStudy() {
           >
             <div className="h-48 sm:h-64 md:h-80 w-full overflow-hidden">
               <motion.img
-                src={caseStudies[activeCaseStudy].image}
+                src={`/images/${caseStudies[activeCaseStudy].image}`}
                 alt={caseStudies[activeCaseStudy].title}
                 className="w-full h-full object-cover"
                 initial={{ opacity: 0, scale: 1.1 }}
@@ -169,7 +169,7 @@ export default function CaseStudy() {
 
         {/* Metrics Section Below Case Studies */}
         <motion.div
-          className="mt-12 sm:mt-16 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6"
+          className="mt-12 sm:mt-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -182,9 +182,8 @@ export default function CaseStudy() {
           }}
         >
           {[
-            { value: "150+", label: "Projects Completed" },
+            { value: "30+", label: "Projects Completed" },
             { value: "90%", label: "Client Retention" },
-            { value: "850K", label: "Tons CO₂ Reduced" },
             { value: "25+", label: "Technology Solutions" },
           ].map((metric, i) => (
             <motion.div
@@ -206,10 +205,10 @@ export default function CaseStudy() {
                 boxShadow: "0 5px 15px rgba(0,0,0,0.1)",
               }}
             >
-              <div className="text-2xl sm:text-3xl font-bold text-[#2E7D32] mb-1 sm:mb-2">
+              <div className="text-3xl sm:text-4xl font-bold text-[#2E7D32] mb-2 sm:mb-3">
                 {metric.value}
               </div>
-              <div className="text-xs sm:text-sm text-slate-600">
+              <div className="text-sm sm:text-base text-slate-600 max-w-[160px] sm:max-w-[200px]">
                 {metric.label}
               </div>
             </motion.div>

@@ -5,116 +5,213 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative bg-gradient-to-br from-[#4FC3F7] via-white to-[#AED581] pt-20 pb-24 md:pt-24 md:pb-32 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="relative bg-gradient-to-br from-[#4FC3F7]/10 via-white to-[#AED581]/10 pt-16 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
+      {/* Background patterns (scaled for responsiveness) */}
       <motion.div
-        className="absolute top-0 left-0 w-full h-full opacity-10"
-        initial={{ backgroundPosition: "0% 50%" }}
-        animate={{ backgroundPosition: "100% 50%" }}
-        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        className="absolute inset-0 opacity-15"
+        animate={{
+          backgroundPosition: ["0% 0%", "100% 100%"],
+        }}
+        transition={{
+          duration: 30,
+          repeat: Infinity,
+          ease: "linear",
+        }}
         style={{
-          backgroundImage:
-            "radial-gradient(circle, #2E7D32 2px, transparent 2px)",
-          backgroundSize: "40px 40px",
+          backgroundImage: `
+            radial-gradient(circle, #2E7D32 1px, transparent 1px),
+            radial-gradient(circle, #4FC3F7 1px, transparent 1px)
+          `,
+          backgroundSize: "40px 40px, 60px 60px", // Smaller pattern for mobile
         }}
       />
 
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8 lg:gap-10 relative z-10">
+      {/* Floating shapes (hidden on small screens, scaled for larger) */}
+      <motion.div
+        className="hidden sm:block absolute top-1/4 left-4 sm:left-10 w-32 sm:w-40 lg:w-48 h-32 sm:h-40 lg:h-48 rounded-full bg-[#4FC3F7]/20 blur-2xl"
+        animate={{
+          y: [-30, 30, -30],
+          x: [-15, 15, -15],
+          scale: [1, 1.2, 1],
+        }}
+        transition={{
+          duration: 15,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+      <motion.div
+        className="hidden md:block absolute bottom-1/3 right-4 sm:right-10 w-40 sm:w-48 lg:w-64 h-40 sm:h-48 lg:h-64 rounded-full bg-[#AED581]/20 blur-2xl"
+        animate={{
+          y: [20, -20, 20],
+          x: [15, -15, 15],
+          scale: [1, 1.15, 1],
+          rotate: [0, 180, 360],
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2,
+        }}
+      />
+
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex-1 order-2 md:order-1"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center md:text-left"
         >
+          {/* Responsive headline */}
           <motion.h1
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-[#2E7D32] leading-tight"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            <span className="block">Comprehensive </span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2E7D32] to-[#4FC3F7]">
-              Environmental & Tech Solutions for a Better Tomorrow
+            <span className="block">Comprehensive</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2E7D32] via-[#4FC3F7] to-[#2E7D32] animate-gradient">
+              Environmental & Tech Solutions
             </span>
           </motion.h1>
 
+          {/* Responsive subtitle */}
           <motion.p
-            className="text-base sm:text-lg text-slate-700 mb-6 sm:mb-8 max-w-lg"
+            className="text-base sm:text-lg md:text-xl text-gray-800 mb-8 sm:mb-10 max-w-xl sm:max-w-2xl md:max-w-3xl mx-auto md:mx-0 font-medium"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            From Environmental Impact Assessments and Sustainable Wastewater
-            Systems to Custom Web & Mobile Applications - we combine ecological
-            expertise and digital innovation to shape a greener, smarter future.
+            We combine{" "}
+            <span className="font-bold text-[#2E7D32]">
+              ecological expertise
+            </span>{" "}
+            and
+            <span className="font-bold text-[#4FC3F7]">
+              {" "}
+              digital innovation
+            </span>{" "}
+            to build a sustainable future.
           </motion.p>
 
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+          {/* Responsive stats grid */}
+          <motion.div
+            className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-8 sm:mb-12 max-w-md mx-auto md:mx-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+          >
+            {[
+              {
+                value: "30+",
+                label: "Projects",
+                bg: "bg-white",
+                text: "text-[#2E7D32]",
+                shadow: "shadow-md",
+              },
+              {
+                value: "95%",
+                label: "Satisfaction",
+                bg: "bg-[#2E7D32]",
+                text: "text-white",
+                shadow: "shadow-md shadow-[#2E7D32]/20",
+              },
+              {
+                value: "12+",
+                label: "Years",
+                bg: "bg-[#4FC3F7]",
+                text: "text-white",
+                shadow: "shadow-md shadow-[#4FC3F7]/20",
+              },
+              {
+                value: "360°",
+                label: "Solutions",
+                bg: "bg-[#AED581]",
+                text: "text-white",
+                shadow: "shadow-md shadow-[#AED581]/20",
+              },
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                className={`${item.bg} ${item.text} ${item.shadow} p-3 sm:p-4 rounded-lg border border-white/20`}
+                whileHover={{
+                  scale: 1.05,
+                  y: -4,
+                  boxShadow: `0 8px 20px ${item.shadow.split("/")[0]}/30`,
+                }}
+                transition={{
+                  duration: 0.3,
+                  delay: 0.7 + index * 0.1,
+                }}
+              >
+                <div className="text-xl sm:text-2xl font-bold">
+                  {item.value}
+                </div>
+                <div className="text-xs sm:text-sm opacity-90">
+                  {item.label}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Responsive CTA buttons */}
+          <motion.div
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.9 }}
+          >
             <motion.button
-              className="bg-[#2E7D32] text-white hover:bg-[#1B5E20] px-6 py-3 sm:px-8 sm:py-4 rounded-xl shadow-lg font-medium text-base sm:text-lg"
+              className="relative bg-[#2E7D32] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-medium text-base sm:text-lg overflow-hidden group"
               whileHover={{
                 scale: 1.05,
-                boxShadow: "0 5px 20px rgba(46, 125, 50, 0.5)",
               }}
               whileTap={{ scale: 0.98 }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.5 }}
             >
-              Explore Our Services
+              <span className="relative z-10">Explore Services</span>
+              <motion.span
+                className="absolute inset-0 bg-gradient-to-r from-[#1B5E20] to-[#4FC3F7] opacity-0 group-hover:opacity-100"
+                initial={{ opacity: 0 }}
+                transition={{ duration: 0.4 }}
+              />
             </motion.button>
 
             <motion.button
-              className="border-2 border-[#2E7D32] text-[#2E7D32] hover:bg-[#2E7D32]/10 px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-medium text-base sm:text-lg"
+              className="border-2 border-[#2E7D32] text-[#2E7D32] hover:bg-[#2E7D32]/10 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-medium text-base sm:text-lg relative group"
               whileHover={{
                 scale: 1.05,
                 backgroundColor: "rgba(46, 125, 50, 0.1)",
               }}
               whileTap={{ scale: 0.98 }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7, duration: 0.5 }}
             >
-              View Case Studies
+              <span className="relative z-10">Get a Consultation</span>
+              <motion.span
+                className="absolute inset-0 border-2 border-transparent group-hover:border-[#2E7D32] rounded-lg"
+                initial={{ borderWidth: 0 }}
+                transition={{ duration: 0.3 }}
+              />
             </motion.button>
-          </div>
-        </motion.div>
-
-        <motion.div
-          className="w-full md:w-1/2 relative order-1 md:order-2 mb-8 md:mb-0"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.5 }}
-        >
-          <img
-            src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80"
-            alt="Modern eco-tech solutions combining nature and technology"
-            className="w-full h-auto rounded-2xl shadow-2xl border-4 sm:border-8 border-white"
-          />
-          <motion.div
-            className="absolute -bottom-4 -left-4 sm:-bottom-8 sm:-left-8 bg-white p-3 sm:p-4 rounded-xl shadow-lg border text-xs sm:text-base"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: 1, type: "spring" }}
-          >
-            <div className="text-xl sm:text-2xl font-bold text-[#2E7D32]">
-              150+
-            </div>
-            <div className="text-xs sm:text-sm text-slate-600">
-              Successful Projects
-            </div>
-          </motion.div>
-          <motion.div
-            className="absolute -top-4 -right-4 sm:-top-8 sm:-right-8 bg-[#2E7D32] text-white p-3 sm:p-4 rounded-xl shadow-lg text-xs sm:text-base"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: 1.2, type: "spring" }}
-          >
-            <div className="text-xl sm:text-2xl font-bold">95%</div>
-            <div className="text-xs sm:text-sm">Client Satisfaction</div>
           </motion.div>
         </motion.div>
       </div>
+
+      {/* CSS for gradient animation */}
+      <style jsx>{`
+        .animate-gradient {
+          background-size: 200% auto;
+          animation: gradient 3s linear infinite;
+        }
+        @keyframes gradient {
+          0% {
+            background-position: 0% center;
+          }
+          100% {
+            background-position: 200% center;
+          }
+        }
+      `}</style>
     </section>
   );
 }
