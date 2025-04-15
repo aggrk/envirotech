@@ -4,7 +4,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
-const NAV_ITEMS = ["Home", "Services", "Projects", "About", "Contact"];
+const NAV_ITEMS = ["Home", "Services", "Projects", "About"];
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
