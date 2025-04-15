@@ -12,7 +12,7 @@ import ContactForm from "../components/ContactForm";
 
 export default function Contact() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#f0fdf4] to-[#ecfdf5]">
+    <div className="min-h-screen bg-gradient-to-br  from-[#f0fdf4] to-[#ecfdf5]">
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-10 left-5 w-40 h-40 rounded-full bg-[#4FC3F7]/10 blur-2xl sm:w-64 sm:h-64 sm:top-20 sm:left-10"></div>
